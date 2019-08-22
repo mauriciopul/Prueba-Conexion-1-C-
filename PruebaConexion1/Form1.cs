@@ -27,8 +27,17 @@ namespace PruebaConexion1
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(c.insertar(Convert.ToInt32(txtId.Text), txtNombre.Text, txtApellidos.Text, dtFechaNacimiento.Text));
-            c.mostrarDatos(dgvPersonas);
+            if (c.validar(Convert.ToInt32(txtId.Text)) == 0)
+            {
+                MessageBox.Show(c.insertar(Convert.ToInt32(txtId.Text), txtNombre.Text, txtApellidos.Text, dtFechaNacimiento.Text));
+                c.mostrarDatos(dgvPersonas);
+            }
+            else
+            {
+                MessageBox.Show("El usuario ya existe");
+                txtId.Text = "";
+                txtId.Focus();
+            }
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -57,6 +66,28 @@ namespace PruebaConexion1
             txtApellidos.Enabled = false;
             txtNombre.Enabled = false;
             dtFechaNacimiento.Enabled = false;
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (c.validar(Convert.ToInt32(txtId.Text)) != 0)
+            {
+                MessageBox.Show(c.eliminar(Convert.ToInt32(txtId.Text)));
+                c.mostrarDatos(dgvPersonas);
+                limpiar();
+            }
+            else
+            {
+                MessageBox.Show("El usuario no existe en la base de datos");
+                limpiar();
+            }
+        }
+        public void limpiar()
+        {
+            txtId.Text = "";
+            txtApellidos.Text = "";
+            txtNombre.Text = "";
+            txtId.Focus();
         }
     }
 }

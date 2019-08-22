@@ -33,13 +33,13 @@ namespace PruebaConexion1
             {
                 cmd = new SqlCommand(
                     "insert into Personas(Id, Nombre, Apellidos, FechaNacimiento) " +
-                    "values("+id+", '"+nom+"', '"+apell+"', '"+fechaNac+"')",cn
+                    "values(" + id + ", '" + nom + "', '" + apell + "', '" + fechaNac + "')", cn
                     );
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
-                salida = "Error al insertar usuario: "+ex.ToString();
+                salida = "Error al insertar usuario: " + ex.ToString();
             }
             return salida;
         }
@@ -50,7 +50,7 @@ namespace PruebaConexion1
             try
             {
                 cmd = new SqlCommand(
-                    "select * from Personas where id = "+id+"",cn
+                    "select * from Personas where id = " + id + "", cn
                     );
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -62,7 +62,7 @@ namespace PruebaConexion1
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al validar el ID: "+ex.ToString());
+                MessageBox.Show("Error al validar el ID: " + ex.ToString());
             }
             return cont;
         }
@@ -74,12 +74,30 @@ namespace PruebaConexion1
                 da = new SqlDataAdapter("select * from personas", cn);
                 dt = new DataTable();
                 da.Fill(dt);
-                dgv.DataSource=dt;
+                dgv.DataSource = dt;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al mostrar Data: "+ex.ToString());
+                MessageBox.Show("Error al mostrar Data: " + ex.ToString());
             }
+        }
+
+        public string eliminar(int id)
+        {
+            string salida;
+            try
+            {
+                cmd = new SqlCommand(
+                    "delete from Personas where id = " + id + "", cn
+                    );
+                cmd.ExecuteNonQuery();                
+                salida = "Se eliminó con exito el usuario";
+            }
+            catch (Exception ex)
+            {
+                salida = "Error al eliminar usuario: " + ex.ToString();
+            }
+            return salida;
         }
 
 
