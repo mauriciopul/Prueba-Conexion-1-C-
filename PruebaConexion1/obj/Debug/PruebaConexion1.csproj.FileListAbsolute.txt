@@ -1,0 +1,10 @@
+E:\Educacion\C#\PruebaConexion1\PruebaConexion1\bin\Debug\PruebaConexion1.exe.config
+E:\Educacion\C#\PruebaConexion1\PruebaConexion1\bin\Debug\PruebaConexion1.exe
+E:\Educacion\C#\PruebaConexion1\PruebaConexion1\bin\Debug\PruebaConexion1.pdb
+E:\Educacion\C#\PruebaConexion1\PruebaConexion1\obj\Debug\PruebaConexion1.csprojAssemblyReference.cache
+E:\Educacion\C#\PruebaConexion1\PruebaConexion1\obj\Debug\PruebaConexion1.Form1.resources
+E:\Educacion\C#\PruebaConexion1\PruebaConexion1\obj\Debug\PruebaConexion1.Properties.Resources.resources
+E:\Educacion\C#\PruebaConexion1\PruebaConexion1\obj\Debug\PruebaConexion1.csproj.GenerateResource.cache
+E:\Educacion\C#\PruebaConexion1\PruebaConexion1\obj\Debug\PruebaConexion1.csproj.CoreCompileInputs.cache
+E:\Educacion\C#\PruebaConexion1\PruebaConexion1\obj\Debug\PruebaConexion1.exe
+E:\Educacion\C#\PruebaConexion1\PruebaConexion1\obj\Debug\PruebaConexion1.pdb
