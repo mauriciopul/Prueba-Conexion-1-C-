@@ -49,13 +49,15 @@ namespace PruebaConexion1
             btnModificar.Enabled = false;
             btnEliminar.Enabled = false;
             btnAgregar.Enabled = true;
+            btnBuscar.Enabled = false;
         }
 
         private void rbtModificar_CheckedChanged(object sender, EventArgs e)
         {
-            btnModificar.Enabled = true;
+            btnModificar.Enabled = false;
             btnEliminar.Enabled = false;
             btnAgregar.Enabled = false;
+            btnBuscar.Enabled = true;
         }
 
         private void rbtEliminar_CheckedChanged(object sender, EventArgs e)
@@ -66,6 +68,7 @@ namespace PruebaConexion1
             txtApellidos.Enabled = false;
             txtNombre.Enabled = false;
             dtFechaNacimiento.Enabled = false;
+            btnBuscar.Enabled = false;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -82,12 +85,42 @@ namespace PruebaConexion1
                 limpiar();
             }
         }
+
+
         public void limpiar()
         {
             txtId.Text = "";
             txtApellidos.Text = "";
             txtNombre.Text = "";
             txtId.Focus();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (c.validar(Convert.ToInt32(txtId.Text)) != 0)
+            {
+                MessageBox.Show(c.modificar(Convert.ToInt32(txtId.Text), txtNombre.Text, txtApellidos.Text, dtFechaNacimiento.Text));
+                limpiar();
+                c.mostrarDatos(dgvPersonas);
+            }
+            else
+            {
+                MessageBox.Show("Usuario no existe");
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                btnModificar.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al buscar: " + ex.ToString());
+            }
+
         }
     }
 }

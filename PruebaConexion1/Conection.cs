@@ -90,7 +90,7 @@ namespace PruebaConexion1
                 cmd = new SqlCommand(
                     "delete from Personas where id = " + id + "", cn
                     );
-                cmd.ExecuteNonQuery();                
+                cmd.ExecuteNonQuery();
                 salida = "Se eliminó con exito el usuario";
             }
             catch (Exception ex)
@@ -98,6 +98,36 @@ namespace PruebaConexion1
                 salida = "Error al eliminar usuario: " + ex.ToString();
             }
             return salida;
+        }
+
+        public string modificar(int id, string nomb, string apell, string fechaNac)
+        {
+            string salida = "Usuario modificado exitosamente";
+            try
+            {
+                cmd = new SqlCommand(
+                    "update Personas set Nombre = '" + nomb + "', Apellidos = '" + apell + "', FechaNacimiento = '" + fechaNac + "' " +
+                    "where id = "+id+""
+                    , cn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                salida = "Error al modificar usuario: " + ex.ToString();
+            }
+            return salida;
+        }
+        public string buscar(int id, string nom, string apell, string fechaN)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al buscar: "+ ex.ToString());
+            }
+
         }
 
 
